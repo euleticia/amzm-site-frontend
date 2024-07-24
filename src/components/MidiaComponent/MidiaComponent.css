@@ -1,0 +1,9 @@
+.slick-list .slick-track .slick-slide {
+    height: auto;
+}
+
+
+.slick-arrow.slick-prev::before,
+.slick-arrow.slick-next::before {
+    display: none;
+}

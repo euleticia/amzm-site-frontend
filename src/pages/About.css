@@ -1,0 +1,33 @@
+.about-container {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    padding: 20px;
+    color: '#777777';
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 30%;
+    margin-right: 20px;
+}
+
+.about-image img {
+    max-width: 100%;
+}
+
+@media (max-width: 767px) {
+    .about-container {
+        flex-direction: column-reverse;
+    }
+
+    .about-image {
+        margin-bottom: 20px;
+        margin-right: 0;
+        max-width: none;
+    }
+}

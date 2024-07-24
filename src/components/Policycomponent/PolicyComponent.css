@@ -1,0 +1,30 @@
+.modal {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0; 
+  }
+  
+  .modal.mostrar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 30%;
+  }
+  
+  .modal-conteudo {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .modal button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
