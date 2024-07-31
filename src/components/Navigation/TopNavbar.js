@@ -1,25 +1,20 @@
-
-// Components Imports
 import PropTypes from 'prop-types';
+import React from 'react';
 import { AppBar, Toolbar, IconButton, Box, Button, styled, Container, Drawer, Divider, List, ListItem, ListItemButton, ListItemText, MenuItem, Menu, Collapse } from "@mui/material"
 import AddressHeaderComponent from "../AddressHeaderComponent/AddressHeaderComponent"
 
-// Icons
 
 import MenuIcon from '@mui/icons-material/Menu'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow'
 
-// Images
 
 import Logo from '../../assets/logo.png'
 import { Fragment, useEffect, useState } from "react"
 
-// CONTS VARIABLES
 const drawerWidth = 300;
 const navItems = [
     { title: 'Início', type: 'link', url: '/' },
-    { title: 'Quem somos', type: 'link', url: '/centro-integrar' },
     { title: 'Fale Conosco', type: 'link', url: '/fale-conosco' },
 ]
 
@@ -288,7 +283,7 @@ const TopNavbar = (props) => {
                 open={openDrawer}
                 onClose={handleDrawerToggle}
                 ModalProps={{
-                    keepMounted: true, // Better open performance on mobile.
+                    keepMounted: true,
                 }}
                 sx={{
                     display: { xs: 'block', sm: 'block' },
@@ -302,10 +297,6 @@ const TopNavbar = (props) => {
 }
 
 TopNavbar.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
     window: PropTypes.func,
 };
 

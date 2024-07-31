@@ -1,31 +1,39 @@
-import React from 'react';
-import { Box, Grid, Typography, styled } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Grid, Typography, styled, Modal } from '@mui/material';
 import TitlePageComponent from '../Titles/TitlePageComponent';
+import Image1 from "../../assets/galeria/intro3.jpeg";
+import Image2 from "../../assets/galeria/intro7.jpeg";
+import Image3 from "../../assets/corrimao1.jpeg";
+import Image4 from "../../assets/galeria/intro8.jpg";
+import Image5 from "../../assets/galeria/intro9.jpeg";
+import Image6 from "../../assets/galeria/intro10.jpeg";
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const services = [
   {
-    title: "Corrimãos em Aço Inoxidável",
-    description: "Nossos corrimãos em aço inoxidável oferecem uma combinação perfeita de durabilidade e elegância. Ideais para escadas internas e externas, esses corrimãos são resistentes à corrosão, proporcionando segurança e um acabamento sofisticado ao seu ambiente. Personalizamos os corrimãos de acordo com as suas necessidades, garantindo um encaixe perfeito e uma instalação profissional."
+    title: "Guarda corpo 2 polegadas com barras de 5/8 em alumínio branco/preto",
+    image: Image1
   },
   {
-    title: "Guarda-Corpos de Vidro",
-    description: "Os guarda-corpos de vidro são uma escolha moderna e elegante para varandas, escadas e mezaninos. Utilizando vidros temperados ou laminados de alta resistência, nossos guarda-corpos oferecem segurança sem comprometer a visibilidade e a estética do seu espaço. Disponíveis com suportes em aço inoxidável ou alumínio, nossos guarda-corpos são projetados para complementar qualquer design arquitetônico."
+    title: "Corrimão de 2 polegadas, com barra de 1 polegada em alumínio ou inox, preto ou branco",
+    image: Image2
   },
   {
-    title: "Guarda-Corpos de Alumínio",
-    description: "Leves, duráveis e resistentes à corrosão, os guarda-corpos de alumínio são uma excelente opção para áreas externas como varandas, sacadas e terraços. Com uma ampla gama de cores e acabamentos, nossos guarda-corpos de alumínio podem ser personalizados para se integrar perfeitamente ao design do seu espaço, proporcionando segurança e estética em um único produto."
+    title: "Guarda corpo 2 polegadas em alumínio branco/preto/inox com vidro 8mm verde/incolor/fumê",
+    image: Image3
   },
   {
-    title: "Instalação de Corrimãos e Guarda-Corpos",
-    description: "Nosso serviço de instalação profissional garante que seus corrimãos e guarda-corpos sejam instalados com precisão e segurança. Nossa equipe de especialistas possui vasta experiência e utiliza as melhores práticas e materiais para assegurar uma instalação duradoura e confiável. Estamos comprometidos em entregar um serviço de alta qualidade e total satisfação do cliente."
+    title: "Corrimão de parede 2 polegadas alumínio branco/preto/inox",
+    image: Image4
   },
   {
-    title: "Manutenção e Reparo de Corrimãos e Guarda-Corpos",
-    description: "Oferecemos serviços completos de manutenção e reparo para garantir que seus corrimãos e guarda-corpos permaneçam em ótimo estado. Desde a substituição de peças danificadas até a aplicação de novos acabamentos, nossa equipe está pronta para ajudar a prolongar a vida útil de seus produtos, mantendo-os seguros e esteticamente agradáveis."
+    title: "Corrimão de parede 1.1/2 alumínio branco/preto/inox simples e duplo",
+    image: Image5
   },
   {
-    title: "Projetos Personalizados",
-    description: "Entendemos que cada projeto é único. Por isso, oferecemos serviços personalizados para atender às suas necessidades específicas. Trabalhamos em estreita colaboração com nossos clientes para criar corrimãos e guarda-corpos que não só atendem aos requisitos funcionais, mas também complementam a estética do espaço. De projetos residenciais a grandes empreendimentos comerciais, estamos prontos para transformar sua visão em realidade."
+    title: "Corrimão de parede chato alumínio branco/preto",
+    image: Image6
   }
 ];
 
@@ -49,25 +57,55 @@ const ServiceTitle = styled(Typography)({
   marginBottom: 8
 });
 
-const ServiceDescription = styled(Typography)({
-  fontSize: 16,
-  color: '#555'
+const ServiceImage = styled('img')({
+  width: '100%',
+  height: 'auto',
+  borderRadius: 8,
+  cursor: 'pointer',
+  marginBottom: 8
 });
 
 const ServicesComponent = () => {
+  const [open, setOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const images = services.map(service => ({
+    original: service.image,
+    thumbnail: service.image,
+    description: service.title,
+  }));
+
+  const handleOpen = (index) => {
+    setSelectedIndex(index);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Box sx={{ padding: 4 }}>
-    <TitlePageComponent title="Nossos serviços" />
+      <TitlePageComponent title="Nossos Produtos" />
       <Grid container spacing={2}>
         {services.map((service, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <ServiceCard>
+              <ServiceImage
+                src={service.image}
+                alt={service.title}
+                onClick={() => handleOpen(index)}
+              />
               <ServiceTitle>{service.title}</ServiceTitle>
-              <ServiceDescription>{service.description}</ServiceDescription>
             </ServiceCard>
           </Grid>
         ))}
       </Grid>
+      <Modal open={open} onClose={handleClose}>
+        <Box sx={{ maxWidth: '80%', maxHeight: '80%', margin: 'auto', marginTop: '5%', outline: 'none' }}>
+          <ImageGallery items={images} startIndex={selectedIndex} showThumbnails={true} />
+        </Box>
+      </Modal>
     </Box>
   );
 };

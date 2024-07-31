@@ -22,7 +22,7 @@ const BigFooterComponent = () => {
           <Box sx={{ flexGrow: 1, m: 0 }}>
             <Tooltip title="Fale conosco no WhatsApp">
               <Button
-                href="https://api.whatsapp.com/send?phone=5571996534336&text=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.%20"
+                href="/"
                 variant="contained"
                 size="small"
                 color="success"
@@ -55,7 +55,7 @@ const BigFooterComponent = () => {
             icon={faEnvelope}
             style={{ color: "#ffc000" }}
           />{" "}
-          contato@amzm.com.br
+          amzm@amzm.com.br
           </p>
           <FontAwesomeIcon
             icon={faMapMarkerAlt}
@@ -70,18 +70,6 @@ const BigFooterComponent = () => {
             <li>
             <FontAwesomeIcon icon={faCaretRight} style={{ color: "#ffc000" }} /> {" "}
               <Link to="/">Página principal</Link>
-            </li>
-            <li>
-            <FontAwesomeIcon icon={faCaretRight} style={{ color: "#ffc000" }} /> {" "}
-              <Link to="/centro-integrar">Quem somos</Link>
-            </li>
-            <li>
-            <FontAwesomeIcon icon={faCaretRight} style={{ color: "#ffc000" }} /> {" "}
-              <Link to="/acompanhamento">Corrimãos</Link>
-            </li>
-            <li>
-            <FontAwesomeIcon icon={faCaretRight} style={{ color: "#ffc000" }} /> {" "}
-              <Link to="/autismo">Guarda-Corpos</Link>
             </li>
             <li>
             <FontAwesomeIcon icon={faCaretRight} style={{ color: "#ffc000" }} /> {" "}

@@ -1,4 +1,5 @@
 import { Card, Grid } from "@mui/material";
+import React from 'react'
 import ContactFormComponent from "../ContactForm/ContactFormComponent";
 
 const MapsComponent = () => {

@@ -18,6 +18,9 @@ import {
 } from "@mui/material";
 
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const AppBarCustom = styled(AppBar)(({}) => ({
   backgroundColor: "#181717",
@@ -60,6 +63,59 @@ const AddressHeaderComponent = (props) => {
             </Box>
             <Box sx={{ flexGrow: 1, m: 0 }}></Box>
             <Box sx={{ flexGrow: 1, m: 0 }}>
+              <Tooltip title="Encontre-nos no Facebook">
+                <Button
+                  href="https://www.facebook.com/centrointegrarsalvador"
+                  target="_blank"
+                  variant="contained"
+                  size="small"
+                  sx={{
+                    p: 1,
+                    mx: 1,
+                    borderRadius: 50,
+                    width: "auto",
+                    minWidth: "auto",
+                  }}
+                >
+                  <FacebookIcon fontSize="1em" />
+                </Button>
+              </Tooltip>
+              <Tooltip title="Assista-nos no Youtube">
+                <Button
+                  href="/"
+                  target="_blank"
+                  variant="contained"
+                  color="error"
+                  size="small"
+                  sx={{
+                    p: 1,
+                    mx: 1,
+                    borderRadius: 50,
+                    width: "auto",
+                    minWidth: "auto",
+                  }}
+                >
+                  <YouTubeIcon fontSize="1em" />
+                </Button>
+              </Tooltip>
+              <Tooltip title="Siga-nos no Instagram">
+                <Button
+                  href="/"
+                  target="_blank"
+                  style={{ backgroundColor: "#ff4880" }}
+                  variant="contained"
+                  size="small"
+                  sx={{
+                    p: 1,
+                    mx: 1,
+                    borderRadius: 50,
+                    width: "auto",
+                    minWidth: "auto",
+                  }}
+                >
+                  <InstagramIcon fontSize="1em" />
+                </Button>
+              </Tooltip>
               <Tooltip title="Fale conosco no WhatsApp">
                 <Button
                   href="/"
